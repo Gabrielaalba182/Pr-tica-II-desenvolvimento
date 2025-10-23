@@ -29,9 +29,4 @@ instituto-esperanca/
 - Máscara para CPF e validação básica de formulário (JS).
 - Animações suaves via CSS + reveal-on-scroll.
 
-## Observações
-
-- O script `js/main.js` contém comportamentos de UI (toasts, máscara CPF, validações básicas).
-- Caso queira que eu gere o commit inicial e o `git` commands prontos, eu posso incluir um script de `git`/instruções passo-a-passo.
-
 ---
