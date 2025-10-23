@@ -1,7 +1,6 @@
-# instituto-esperanca
+# Instituto-Esperanca
 
 Projeto: Interface responsiva e acessível para o *Instituto Esperança*.
-Entrega preparada para GitHub Pages.
 
 ## Estrutura do projeto
 
