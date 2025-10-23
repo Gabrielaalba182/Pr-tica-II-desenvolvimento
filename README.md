@@ -18,31 +18,6 @@ instituto-esperanca/
 ├── img/
 │   └── favicon.svg
 └── README.md
-```
-
-## Como usar localmente
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/{seu-usuario-github}/instituto-esperanca.git
-cd instituto-esperanca
-```
-
-2. Abrir `index.html` no navegador (duplo clique) ou usar um servidor local (recomendado):
-```bash
-# Python 3
-python -m http.server 8000
-# então abra http://localhost:8000
-```
-
-## Deploy no GitHub Pages
-
-1. Crie o repositório no GitHub com o nome `instituto-esperanca` (ou use o nome escolhido).
-2. Faça push do código para o repositório.
-3. No GitHub, vá em **Settings → Pages** e selecione a branch (`main` ou `master`) e a pasta `/ (root)` como origem.
-4. Salve. O site ficará disponível em `https://{seu-usuario-github}.github.io/instituto-esperanca` após alguns minutos.
-
-> Observação: substitua `{seu-usuario-github}` pelo seu usuário GitHub real.
 
 ## Funcionalidades adicionadas
 
