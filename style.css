@@ -1,0 +1,238 @@
+/* Design System: variáveis CSS */
+:root{
+  /* Paleta (>=8 cores) */
+  --color-primary: #0b5cff;
+  --color-primary-700: #084cc2;
+  --color-secondary: #ff6b35;
+  --color-accent: #00b894;
+  --color-muted: #6b7280;
+  --color-bg: #f7fafc;
+  --color-surface: #ffffff;
+  --color-danger: #e02424;
+  --color-success: #16a34a;
+  --color-info: #0ea5e9;
+
+  /* Tipografia (>=5 tamanhos) */
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --fs-xxl: 2.25rem; /* 36px */
+  --fs-xl: 1.5rem;   /* 24px */
+  --fs-lg: 1.125rem; /* 18px */
+  --fs-md: 1rem;     /* 16px */
+  --fs-sm: 0.875rem; /* 14px */
+
+  /* Espaçamentos modulares */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  /* Grid */
+  --container-max: 1200px;
+  --gutter: var(--space-2);
+}
+
+/* Reset básico */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-family-base);
+  font-size:var(--fs-md);
+  background:var(--color-bg);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Layout geral com CSS Grid */
+.app{
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+  min-height:100vh;
+}
+
+/* Container centralizado com sistema de 12 colunas */
+.container{
+  width:100%;
+  max-width:var(--container-max);
+  margin-inline:auto;
+  padding-inline:var(--space-2);
+}
+
+/* 12-column grid helper */
+.row{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+/* column helpers */
+.col-12{grid-column: 1 / span 12}
+.col-6{grid-column: span 6}
+.col-4{grid-column: span 4}
+.col-3{grid-column: span 3}
+.col-8{grid-column: span 8}
+
+/* Header / Nav */
+.site-header{
+  background:linear-gradient(90deg,var(--color-primary),var(--color-primary-700));
+  color:white;
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-3);
+  padding-block:var(--space-3);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:var(--space-2);
+}
+.brand h1{font-size:var(--fs-lg); margin:0; color:white}
+.site-nav{
+  display:flex;
+  align-items:center;
+  gap:var(--space-2);
+}
+.site-nav ul{
+  list-style:none; margin:0; padding:0; display:flex; gap:var(--space-2);
+}
+.site-nav a{
+  color:white; text-decoration:none; padding:calc(var(--space-1)) calc(var(--space-2)); border-radius:6px;
+  font-weight:600;
+}
+.site-nav a:hover, .site-nav a:focus{background:rgba(255,255,255,0.08); outline:none}
+
+/* Dropdown */
+.nav-item{position:relative}
+.nav-item .dropdown{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  background:var(--color-surface);
+  color: #0f172a;
+  border-radius:8px;
+  box-shadow:0 6px 20px rgba(2,6,23,0.12);
+  min-width:200px;
+  display:none;
+  padding:var(--space-2);
+  z-index:40;
+}
+.nav-item:hover .dropdown, .nav-item:focus-within .dropdown{display:block}
+
+/* Mobile hamburger */
+.hamburger{
+  display:none;
+  background:transparent;
+  border:0;
+  color:white;
+  font-size:1.25rem;
+}
+
+/* Main content */
+.site-main{padding-block:var(--space-4)}
+.card{
+  background:var(--color-surface);
+  border-radius:12px;
+  padding:var(--space-3);
+  box-shadow:0 6px 18px rgba(2,6,23,0.06);
+}
+
+/* Cards grid for projects */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:var(--space-3);
+}
+.card img{width:100%; border-radius:8px; height:200px; object-fit:cover}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:0.5rem 1rem; border-radius:8px; border:0; cursor:pointer; font-weight:600;
+  background:var(--color-primary); color:white;
+}
+.btn.secondary{background:var(--color-secondary)}
+.btn:disabled{opacity:0.5; cursor:not-allowed}
+.btn:focus{outline:3px solid rgba(11,92,255,0.18)}
+
+/* Form styles */
+form label{display:block; margin-top:var(--space-2); font-weight:600}
+input[type="text"], input[type="email"], select, textarea{
+  width:100%; padding:var(--space-2); border-radius:8px; border:1px solid #e6e9ef; margin-top:6px;
+  background:transparent;
+}
+input:focus, textarea:focus{border-color:var(--color-primary); box-shadow:0 4px 12px rgba(11,92,255,0.06); outline:none}
+input:invalid{border-color:var(--color-danger)}
+.form-row{display:flex; gap:var(--space-2); align-items:center}
+
+/* Alerts and toasts (basic) */
+.alert{
+  padding:var(--space-2); border-radius:8px; margin-bottom:var(--space-2);
+}
+.alert-info{background:#e6f6ff; color:var(--color-info)}
+.alert-success{background:#e9fbe9; color:var(--color-success)}
+.alert-danger{background:#ffecec; color:var(--color-danger)}
+
+/* Modal (CSS only) */
+.modal{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(2,6,23,0.45); z-index:60;
+}
+.modal .dialog{width:90%; max-width:600px; background:var(--color-surface); padding:var(--space-4); border-radius:12px}
+.modal[open]{display:flex}
+
+/* Badges / tags */
+.badge{display:inline-block; padding:4px 8px; border-radius:999px; font-size:0.75rem; background:#f1f5f9}
+
+/* Footer */
+.site-footer{background:#0b1220; color:#cbd5e1; padding-block:var(--space-3)}
+.site-footer p{margin:0}
+
+/* Responsividade: 5 breakpoints + grid adjustments */
+/* mobile first */
+@media (max-width:599px){
+  .cards{grid-template-columns:1fr}
+  .site-nav{display:none}
+  .hamburger{display:inline-block}
+  .brand h1{font-size:var(--fs-md)}
+  .card img{height:160px}
+  .row{grid-template-columns: repeat(4, 1fr)}
+  .col-6{grid-column: span 4}
+  .col-3{display:none}
+}
+
+/* small tablets */
+@media (min-width:600px) and (max-width:767px){
+  .cards{grid-template-columns: repeat(2,1fr)}
+  .row{grid-template-columns: repeat(8, 1fr)}
+  .col-6{grid-column: span 4}
+}
+
+/* tablet */
+@media (min-width:768px) and (max-width:991px){
+  .cards{grid-template-columns: repeat(2,1fr)}
+  .row{grid-template-columns: repeat(12, 1fr)}
+  .col-6{grid-column: span 6}
+}
+
+/* desktop */
+@media (min-width:992px) and (max-width:1199px){
+  .cards{grid-template-columns: repeat(3,1fr)}
+  .row{grid-template-columns: repeat(12, 1fr)}
+}
+
+/* large desktop */
+@media (min-width:1200px){
+  .row{grid-template-columns: repeat(12, 1fr)}
+}
+
+/* Utilities */
+.text-center{text-align:center}
+.mt-2{margin-top:var(--space-2)}
+.p-2{padding:var(--space-2)}
+.shadow-sm{box-shadow:0 6px 18px rgba(2,6,23,0.04)}
